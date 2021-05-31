@@ -1,41 +1,27 @@
-import { Builder, By, until } from "selenium-webdriver";
+import { Builder, By, until, Capabilities } from "selenium-webdriver";
+import { Options } from "selenium-webdriver/chrome.js";
 import "chromedriver";
+import {changeDateFormat} from "../utils/date.js";
 
-export const runTest = async (
-  destinationInput,
-  checkIn,
-  checkOut,
-  noOfAdults,
-  noOfChildren
-) => {
-  // Create output object
-  let output = {
-    destinationInput,
-    destinationOutput: "",
-    checkIn,
-    checkOut,
-    noOfAdults,
-    noOfChildren,
-    loadTestSuccess: false,
-    loadTestMessage: "n/a",
-    inputTestSuccess: false,
-    inputTestMessage: "n/a",
-  };
+export const runTest = async (runner, store) => {
+  // Create chrome driver options
+  const options = new Options()
+      .windowSize({width: 1920, height: 1080})
+      .addArguments(["no-sandbox", "disable-gpu", "lang=en-AU"])
+      .addArguments("excludeSwitches", ["enable-logging"])
+      .setUserPreferences({"intl.accept_languages": "en-AU"});
 
-  // Create chrome driver object
-  const driver = await new Builder().forBrowser("chrome").build();
+  // Create driver
+  let driver = await new Builder()
+      .forBrowser("chrome")
+      .build();
 
   // Test page loads correct components and inputs return correct results
-  await loadPageTest(driver, output);
-  await inputPageTest(driver, output);
-
-  // Return outcome for this page search
-  return new Promise((resolve) => {
-    resolve([Object.values(output)]);
-  });
+  await loadPageTest(driver, runner, store);
+  await inputPageTest(driver, runner, store);
 };
 
-const loadPageTest = async (driver, output) => {
+const loadPageTest = async (driver, runner, store) => {
   // Find input areas
   const destinationInputBox = By.name("ss");
   const datesInputBox = By.className("xp__dates-inner");
@@ -64,27 +50,26 @@ const loadPageTest = async (driver, output) => {
     await driver.wait(until.elementLocated(searchButton));
 
     // Success
-    output.loadTestSuccess = true;
+    runner.setValue("loadTestSuccess", true);
 
-    return new Promise((resolve) => {
-      resolve(output);
-    });
   } catch (e) {
     await driver.close();
     // Failed: remove new lines from error message
     let error = e.message.replace(/\n/g, " ");
-    output.loadTestSuccess = false;
-    output.loadTestMessage = error;
 
-    return new Promise((resolve) => {
-      resolve(output);
-    });
+    runner.setValue("loadTestSuccess", false);
+    runner.setValue("loadTestMessage", error);
   }
 };
 
-const inputPageTest = async (driver, output) => {
-  const { destinationInput, checkIn, checkOut, noOfAdults, noOfChildren } =
-    output;
+const inputPageTest = async (driver, runner, store) => {
+  const {
+    destinationInput,
+    checkIn,
+    checkOut,
+    noOfAdults,
+    noOfChildren
+  } = store;
 
   const datesInputBox = By.className("xp__dates-inner");
   const guestDetailsBox = By.className("xp__input");
@@ -97,12 +82,13 @@ const inputPageTest = async (driver, output) => {
 
     //2.1.2 Enter the checkin and checkout dates
     await driver.findElement(datesInputBox).click(); //Click dates box
+
     await driver
-      .findElement(By.css("td.bui-calendar__date[data-date='" + checkIn + "']"))
+      .findElement(By.css("td.bui-calendar__date[data-date='" + changeDateFormat(checkIn) + "']"))
       .click(); //checkin
     await driver
       .findElement(
-        By.css("td.bui-calendar__date[data-date='" + checkOut + "']")
+        By.css("td.bui-calendar__date[data-date='" + changeDateFormat(checkOut) + "']")
       )
       .click(); //checkout
 
@@ -145,7 +131,8 @@ const inputPageTest = async (driver, output) => {
     /* Check whether searchBox value matches searched destination */
     await driver.wait(until.elementLocated(By.id("ss")), 3000);
     let destFound = await driver.findElement(By.id("ss")).getAttribute("value");
-    output.destinationOutput = destFound;
+
+    runner.setValue("destinationOutput", destFound);
 
     /*Check the title of the page*/
     await driver.wait(until.titleContains(destinationInput), 3000);
@@ -178,32 +165,16 @@ const inputPageTest = async (driver, output) => {
     );
 
     // Success
-    output.inputTestSuccess = true;
+    runner.setValue("inputTestSuccess", true);
 
     await driver.close();
-    return new Promise((resolve) => {
-      resolve(output);
-    });
   } catch (e) {
     // Failed: remove new lines from error message
-    output.inputTestSuccess = false;
     let error = e.message.replace(/\n/g, " ");
-    output.inputTestMessage = error;
+
+    runner.setValue("inputTestSuccess", false);
+    runner.setValue("inputTestMessage", error);
 
     await driver.close();
-    return new Promise((resolve) => {
-      resolve(output);
-    });
   }
 };
-
-// Headless testing
-// const options = new chrome.Options();
-// options.addArguments(
-//   options.headless().windowSize({ width: 1920, height: 1080 })
-// );
-// options.addArguments("--window-size=1920,1080");
-// options.addArguments("--no-sandbox");
-// options.addArguments("--allow-insecure-localhost");
-// options.addArguments("excludeSwitches", ["enable-logging"]);
-// options.addArguments("excludeSwitches", ["enable-logging"]);

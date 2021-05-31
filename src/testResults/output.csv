@@ -1,5 +1,27 @@
 Dest Name,Dest Found,Check In,Check Out,Adults,Children,Page Loaded,Load Msg,Input Success,Input Msg
-Livonia,Livonia,2021-05-31,2021-06-08,5,1,true,n/a,true,n/a
-Allen,San Miguel de Allende,2021-05-31,2021-06-05,4,4,true,n/a,true,n/a
-Peoria,Peoria,2021-05-31,2021-06-10,7,7,true,n/a,true,n/a
-Ea%>st%> H%>ar%>tf%>or%>d,Saint-François,2021-05-31,2021-06-10,1,6,true,n/a,false,Waiting for title to contain "Ea%>st%> H%>ar%>tf%>or%>d" Wait timed out after 3002ms
+Go!!ld Co@st,,2021-06-16,2021-06-17,4,9,true,n/a,false,Waiting for title to contain "Go!!ld Co@st" Wait timed out after 3162ms
+Gold Coast,,2021-06-16,2021-06-17,4,1,true,n/a,false,Waiting for title to contain "Gold Coast" Wait timed out after 3182ms
+Dest Name,Dest Found,Check In,Check Out,Adults,Children,Page Loaded,Load Msg,Input Success,Input Msg
+Go!!ld Co@st,,2021-06-16,2021-06-17,4,9,true,n/a,false,Waiting for title to contain "Go!!ld Co@st" Wait timed out after 3208ms
+Gold Coast,,2021-06-16,2021-06-17,4,1,true,n/a,false,Waiting for title to contain "Gold Coast" Wait timed out after 3068ms
+Dest Name,Dest Found,Check In,Check Out,Adults,Children,Page Loaded,Load Msg,Input Success,Input Msg
+Go!!ld Co@st,,2021-06-16,2021-06-17,4,9,true,n/a,false,Waiting for title to contain "Go!!ld Co@st" Wait timed out after 3008ms
+Gold Coast,,2021-06-16,2021-06-17,4,1,true,n/a,false,Waiting for title to contain "Gold Coast" Wait timed out after 3178ms
+Dest Name,Dest Found,Check In,Check Out,Adults,Children,Page Loaded,Load Msg,Input Success,Input Msg
+Go!!ld Co@st,,2021-06-16,2021-06-17,4,9,true,n/a,false,Waiting for title to contain "Go!!ld Co@st" Wait timed out after 3194ms
+Gold Coast,,2021-06-16,2021-06-17,4,1,true,n/a,false,Waiting for title to contain "Gold Coast" Wait timed out after 3199ms
+Dest Name,Dest Found,Check In,Check Out,Adults,Children,Page Loaded,Load Msg,Input Success,Input Msg
+Go!!ld Co@st,,2021-06-16,2021-06-17,4,9,true,n/a,false,Waiting for title to contain "Go!!ld Co@st" Wait timed out after 3202ms
+Gold Coast,,2021-06-16,2021-06-17,4,1,true,n/a,false,Waiting for title to contain "Gold Coast" Wait timed out after 3033ms
+Dest Name,Dest Found,Check In,Check Out,Adults,Children,Page Loaded,Load Msg,Input Success,Input Msg
+Go!!ld Co@st,,2021-06-16,2021-06-17,4,9,true,n/a,false,Waiting for title to contain "Go!!ld Co@st" Wait timed out after 3006ms
+Gold Coast,,2021-06-16,2021-06-17,4,1,true,n/a,false,Waiting for title to contain "Gold Coast" Wait timed out after 3062ms
+Dest Name,Dest Found,Check In,Check Out,Adults,Children,Page Loaded,Load Msg,Input Success,Input Msg
+Go!!ld Co@st,,2021-06-16,2021-06-17,4,9,true,n/a,false,Waiting for title to contain "Go!!ld Co@st" Wait timed out after 3113ms
+Dest Name,Dest Found,Check In,Check Out,Adults,Children,Page Loaded,Load Msg,Input Success,Input Msg
+Go!!ld Co@st,Colorado,2021-06-16,2021-06-17,4,9,true,n/a,false,Waiting for title to contain "Go!!ld Co@st" Wait timed out after 3125ms
+Dest Name,Dest Found,Check In,Check Out,Adults,Children,Page Loaded,Load Msg,Input Success,Input Msg
+Go!!ld Co@st,,2021-06-16,2021-06-17,4,9,true,n/a,false,Waiting for title to contain "Go!!ld Co@st" Wait timed out after 3027ms
+Dest Name,Check In,Check Out,Adults,Children,Page Loaded,Load Msg,Input Success,Input Msg
+McLean,Mon May 31 2021 18:10:23 GMT+1000 (GMT+10:00),Sun Jun 06 2021 14:22:59 GMT+1000 (GMT+10:00),5,5,true,"",true,""
+S>p>ar`ks-,Tue Jun 01 2021 01:17:51 GMT+1000 (GMT+10:00),Thu Jun 03 2021 02:46:32 GMT+1000 (GMT+10:00),9,6,true,"",false,"Waiting for title to contain ""S>p>ar`ks-"" Wait timed out after 3175ms"

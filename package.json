@@ -1,12 +1,12 @@
 {
   "name": "testing-tool-2",
   "version": "1.0.0",
-  "main": "src/index.ts",
+  "main": "src/index.js",
   "license": "MIT",
   "type": "module",
   "scripts": {
     "start": "yarn runtest",
-    "runtest": "node --trace-warnings src/index.mjs",
+    "runtest": "node --trace-warnings src/index.js",
     "lint": "eslint . --ext .js",
     "prettier": "prettier --config .prettierrc src/**/*.js --write"
   },
