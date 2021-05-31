@@ -17,7 +17,7 @@ export const saveToCSV = (resultsTitles, results) => {
     separator: ",",
   });
 
-  appendFile("src/testResults/output.csv", csvFromArrayOfArrays, (err) => {
+  appendFile("output.csv", csvFromArrayOfArrays, (err) => {
     if (err) throw err;
     console.log("The data was appended to file!");
   });

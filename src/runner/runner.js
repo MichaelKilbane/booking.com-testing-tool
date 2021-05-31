@@ -17,6 +17,8 @@ class Runner {
             Object.entries(this.generators).forEach(([key, generator]) => {
                 this.setValue(key, generator.generate());
             });
+            //
+            // console.log(this.store);
 
             await this.test(this, this.store);
 

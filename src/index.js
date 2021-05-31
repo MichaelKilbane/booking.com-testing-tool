@@ -1,4 +1,3 @@
-import { testDriver } from "./functions/testDriver.js ";
 import { saveToCSV } from "./functions/saveToCSV.js";
 
 import * as gen from "./generators/index.js";
@@ -27,6 +26,7 @@ const main = async () => {
 
   const resultsTitles = {
     destinationInput: "Dest Name",
+    destinationOutput: "Dest Output",
     checkIn: "Check In",
     checkOut: "Check Out",
     noOfAdults: "Adults",
